@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>brandcultura — Kultur des Wachstums</title>
+  <meta name="description" content="Unabhängige Agentur für kulturelle Markenentwicklung. Wir kultivieren das kulturelle Gewicht von Ideen.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#0F1C14; --paper:#F7F3EB; --acid:#C8F04A; --teal:#1A3C34; --line:rgba(15,28,20,.12); --ease:cubic-bezier(.22,1,.36,1); }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .nav{height:80px;padding:0 4.5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,243,235,.9);backdrop-filter:blur(16px)}
+    .logo{font-size:22px;font-weight:800;letter-spacing:-1.2px}.logo span{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+    nav{display:flex;gap:28px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+    .nav-cta{background:var(--ink);color:var(--paper);border-radius:999px;padding:12px 20px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+    .nav-cta span{color:var(--acid)}
+    .hero{min-height:100vh;padding:140px 4.5vw 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .hero-tag{font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:24px}
+    .hero h1{font-size:clamp(48px,8vw,110px);line-height:.92;letter-spacing:-.04em;font-weight:700}
+    .hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+    .hero-lead{margin-top:24px;font-size:18px;max-width:460px;color:var(--teal)}
+    .hero-visual{background:linear-gradient(135deg,#e8f0d8,#d4e8b0);border-radius:24px;aspect-ratio:4/3;display:grid;place-items:center;font-size:14px;color:var(--teal)}
+    section{padding:100px 4.5vw}
+    .eyebrow{font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:16px}
+    .section-title{font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-.03em;font-weight:700}
+    .section-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+    .position{background:var(--ink);color:var(--paper)}.position .eyebrow{color:var(--acid)}
+    .position-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}.position p{font-size:19px;line-height:1.55;max-width:500px}
+    .directions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+    .direction-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
+    .direction-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(15,28,20,.1)}
+    .direction-img{height:220px;background:linear-gradient(145deg,#e8f0d8,#c8e090);display:grid;place-items:center;font-size:13px;color:var(--teal)}
+    .direction-body{padding:24px 24px 28px}.direction-num{font-family:'DM Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:6px}
+    .direction-card h3{font-size:22px;font-weight:700;margin-bottom:10px}.direction-card p{font-size:15px;color:var(--teal);line-height:1.5}
+    .quote{text-align:center;padding:120px 4.5vw;position:relative}
+    .quote blockquote{font-size:clamp(32px,5.5vw,64px);line-height:1.15;letter-spacing:-.03em;font-weight:700;max-width:860px;margin:0 auto}
+    .quote blockquote em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+    .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .step{padding:32px 24px;border:1px solid var(--line);border-radius:20px;background:#fff}
+    .step-num{font-family:'DM Mono',monospace;font-size:12px;color:var(--acid);background:var(--ink);display:inline-block;padding:4px 10px;border-radius:6px;margin-bottom:16px}
+    .step h3{font-size:20px;font-weight:700;margin-bottom:10px}.step p{font-size:15px;color:var(--teal)}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .contact h2{font-size:clamp(36px,4.5vw,56px);line-height:1.05;letter-spacing:-.03em;margin-bottom:16px}
+    form{display:flex;flex-direction:column;gap:18px}
+    label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+    input,textarea{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-family:inherit;font-size:16px}
+    input:focus,textarea:focus{outline:none;border-color:var(--ink)}
+    textarea{min-height:120px;resize:vertical}
+    button[type=submit]{background:var(--ink);color:var(--paper);border:none;border-radius:999px;padding:16px 24px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;margin-top:6px}
+    button span{color:var(--acid)}
+    footer{padding:36px 4.5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--teal)}
+    .admin-link{position:fixed;bottom:16px;left:16px;font-size:11px;opacity:.3;font-family:'DM Mono',monospace}
+    @media(max-width:900px){.hero,.position-grid,.directions-grid,.process-steps,.contact{grid-template-columns:1fr} nav{display:none}.hero-visual{order:-1}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="logo">brand<span>cultura</span></a>
+    <nav>
+      <a href="#position">Position</a>
+      <a href="#richtungen">Richtungen</a>
+      <a href="#prozess">Prozess</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="nav-cta">Dialog starten <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="hero-tag">Unabhängige Agentur / 2026</p>
+        <h1>Wir kultivieren das <em>kulturelle Gewicht</em> von Ideen.</h1>
+        <p class="hero-lead">Wir fördern diejenigen, die Neues schaffen — in Klang, Code, Business und Kunst.</p>
+      </div>
+      <div class="hero-visual">Hero-Illustration (Kultur des Wachstums)</div>
+    </section>
+
+    <section class="position" id="position">
+      <p class="eyebrow">[ unsere Position ]</p>
+      <h2 class="section-title">Nicht «Reichweite».<br>Sondern <em>unsere</em> Menschen.</h2>
+      <div class="position-grid">
+        <p>brandcultura ist eine Agentur für Projekte, denen Sichtbarkeit allein nicht reicht. Wir helfen, Stimme, Kontext und Community zu finden.</p>
+        <p>Uns interessiert nicht der Lärm um eine Idee, sondern ihre Fähigkeit, bei Menschen zu bleiben.</p>
+      </div>
+    </section>
+
+    <section id="richtungen">
+      <p class="eyebrow">[ Richtungen ]</p>
+      <h2 class="section-title">Vom ersten Signal zur großen Bewegung.</h2>
+      <div class="directions-grid">
+        <article class="direction-card"><div class="direction-img">01 Musik</div><div class="direction-body"><div class="direction-num">01</div><h3>Musik</h3><p>Wir bauen ein Publikum um live Klang: Release-Strategien, visuelle Systeme, Kollaborationen und Konzerte.</p></div></article>
+        <article class="direction-card"><div class="direction-img">02 Business</div><div class="direction-body"><div class="direction-num">02</div><h3>Neues Business</h3><p>Wir übersetzen eine starke Idee in eine Sprache, die man wählen, diskutieren und weiterempfehlen möchte.</p></div></article>
+        <article class="direction-card"><div class="direction-img">03 Produkte</div><div class="direction-body"><div class="direction-num">03</div><h3>Lokale Produkte</h3><p>Wir helfen Entwicklern und unabhängigen Teams, ihren Platz im kulturellen Feld der Stadt und des Netzes zu finden.</p></div></article>
+        <article class="direction-card"><div class="direction-img">04 Kreativität</div><div class="direction-body"><div class="direction-num">04</div><h3>Kreativität</h3><p>Wir schaffen einen Rahmen für Künstler, Kuratoren und Autoren — vom ersten Manifest bis zur nachhaltigen Community.</p></div></article>
+      </div>
+    </section>
+
+    <section class="quote">
+      <p class="eyebrow">[ brandcultura in zwei Worten ]</p>
+      <blockquote>Neue Kultur braucht eine <em>laute</em> und ehrliche Stimme.</blockquote>
+    </section>
+
+    <section id="prozess">
+      <p class="eyebrow">[ wie wir arbeiten ]</p>
+      <h2 class="section-title">Strategie, die das Menschliche nicht verliert.</h2>
+      <div class="process-steps">
+        <div class="step"><div class="step-num">01</div><h3>Zuhören</h3><p>Wir verstehen Kontext, Ambition und Realität des Projekts.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Den Nerv finden</h3><p>Wir formulieren Idee, Stimme und visuellen Charakter der Marke.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Die Welle starten</h3><p>Wir bündeln Kampagne, Content und Partnerschaften zu einer Bewegung.</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div>
+        <p class="eyebrow">[ beginnen ]</p>
+        <h2>Hast du der Welt etwas zu sagen?</h2>
+        <p style="color:var(--teal);margin-top:12px;max-width:400px">Erzähl es in ein paar Zeilen. Wir antworten und finden die Form für deine Idee.</p>
+      </div>
+      <form id="contact-form">
+        <label>Wie heißt du / dein Team?<input required name="name" placeholder="Name oder Team"></label>
+        <label>Wo erreichen wir dich?<input required type="email" name="email" placeholder="mail@beispiel.com"></label>
+        <label>Worum geht es in deinem Projekt?<textarea required name="project" placeholder="Musik, Service, Ausstellung, Idee…"></textarea></label>
+        <button type="submit">Geschichte senden <span>↗</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#top" class="logo">brand<span>cultura</span></a>
+    <p>© 2026 / Kultur des Wachstums</p>
+    <a href="#top">nach oben ↑</a>
+  </footer>
+  <a href="admin.html" class="admin-link">admin</a>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e){e.preventDefault();const b=this.querySelector('button');b.innerHTML='Gesendet ✓';setTimeout(()=>{b.innerHTML='Geschichte senden <span>↗</span>';this.reset()},2000)});
+  </script>
+</body>
+</html>

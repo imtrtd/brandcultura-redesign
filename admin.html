@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin — brandcultura</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0B1210;--surface:#141C19;--border:#24302C;--text:#E8EDE9;--muted:#8A9A92;--acid:#C8F04A;--teal:#3A8B7A}
+    *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;min-height:100vh;display:grid;grid-template-columns:220px 1fr}
+    aside{background:var(--surface);border-right:1px solid var(--border);padding:24px 16px;display:flex;flex-direction:column;gap:6px}
+    .logo{font-size:17px;font-weight:700;margin-bottom:28px;padding:0 8px}.logo span{color:var(--acid);font-style:italic}
+    .nav-item{padding:11px 12px;border-radius:9px;font-size:13px;color:var(--muted);cursor:pointer}.nav-item.active,.nav-item:hover{background:rgba(200,240,74,.08);color:var(--text)}.nav-item.active{color:var(--acid)}
+    main{padding:28px 36px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}h1{font-size:26px;font-weight:700}
+    .badge{background:var(--acid);color:#0B1210;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+    .stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}.stat-value{font-size:28px;font-weight:700}.stat-value.green{color:var(--acid)}
+    table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+    th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px}th{background:rgba(0,0,0,.2);color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase}
+    .status{display:inline-block;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:600}.status.new{background:rgba(200,240,74,.15);color:var(--acid)}.status.progress{background:rgba(58,139,122,.2);color:var(--teal)}.status.done{background:rgba(138,154,146,.2);color:var(--muted)}
+    .note{margin-top:28px;padding:18px;background:rgba(200,240,74,.06);border:1px solid rgba(200,240,74,.2);border-radius:12px;font-size:13px;color:var(--muted);line-height:1.5}.note strong{color:var(--acid)}
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="logo">brand<span>cultura</span></div>
+    <div class="nav-item active">Leads</div>
+    <div class="nav-item">Content</div>
+    <div class="nav-item">Medien</div>
+    <div class="nav-item">Analytics</div>
+    <div class="nav-item">Einstellungen</div>
+    <div style="margin-top:auto;padding:10px 8px;font-size:12px"><a href="index.html" style="color:var(--acid)">← Zur Website</a></div>
+  </aside>
+  <main>
+    <header><h1>Leads</h1><span class="badge">DEMO</span></header>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">Neue Anfragen</div><div class="stat-value green">7</div></div>
+      <div class="stat"><div class="stat-label">In Bearbeitung</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">Diesen Monat</div><div class="stat-value">18</div></div>
+      <div class="stat"><div class="stat-label">Conversion</div><div class="stat-value">32%</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Name / Team</th><th>E-Mail</th><th>Projekt</th><th>Status</th><th>Datum</th></tr></thead>
+      <tbody>
+        <tr><td>Nova Collective</td><td>hello@novacollective.de</td><td>Album Release + Visual System</td><td><span class="status new">Neu</span></td><td>14.08.2026</td></tr>
+        <tr><td>Studio Klang</td><td>kontakt@studioklang.com</td><td>Lokales Produkt-Launch</td><td><span class="status progress">In Arbeit</span></td><td>12.08.2026</td></tr>
+        <tr><td>Anna R.</td><td>anna@example.com</td><td>Künstler-Manifest & Community</td><td><span class="status new">Neu</span></td><td>11.08.2026</td></tr>
+        <tr><td>Code & Craft</td><td>team@codeandcraft.io</td><td>Brand Language für SaaS</td><td><span class="status done">Abgeschlossen</span></td><td>03.08.2026</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Admin-Panel (Konzept)</strong><br>Dies ist eine interaktive Demo. In Produktion: Auth, Supabase/Neon für Leads, Content-Editor, Analytics.</div>
+  </main>
+</body>
+</html>
