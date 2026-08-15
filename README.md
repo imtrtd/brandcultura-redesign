@@ -5,20 +5,20 @@ Vollständige Modernisierung der Website brandcultura.com.
 ## Was neu ist
 
 - **Vollständige deutsche Lokalisierung**
-- **Modernes Design-System** (Paper / Ink / Acid Tokens)
-- **Custom-Illustrationen** (lokal generiert, in artifacts)
-- **Pлавные анимации** und micro-interactions
-- **Admin-Panel** (`admin.html`) — Demo-Dashboard für Leads
-- Responsive, self-contained
+- **Modernes Gestaltungssystem** (Papier-, Tinten- und Akzentfarben)
+- **Eigene Illustrationen** (lokal generiert, in artifacts)
+- **Sanfte Animationen** und Mikrointeraktionen
+- **Verwaltungsbereich** (`admin.html`) — Demo-Übersicht für Anfragen
+- Responsiv und eigenständig
 
 ## Deployment
 
-Repo: https://github.com/imtrtd/brandcultura-redesign
+Repository: https://github.com/imtrtd/brandcultura-redesign
 
-Einfach mit Vercel verbinden oder Ordner deployen.
+Einfach mit Vercel verbinden oder den Ordner bereitstellen.
 
 ## Illustrationen
 
-Die generierten Illustrationen befinden sich im lokalen artifacts/brandcultura-redesign/ (jfnCm.jpg, xNr1a.jpg, Ch50O.jpg, kteJx.jpg, r7ObD.jpg). Sie können in den finalen Build eingefügt werden.
+Die generierten Illustrationen befinden sich im lokalen Verzeichnis artifacts/brandcultura-redesign/ (jfnCm.jpg, xNr1a.jpg, Ch50O.jpg, kteJx.jpg, r7ObD.jpg). Sie können in den finalen Build aufgenommen werden.
 
 © 2026 brandcultura
