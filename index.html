@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>brandcultura — Kultur des Wachstums</title>
   <meta name="description" content="Unabhängige Agentur für kulturelle Markenentwicklung. Wir kultivieren das kulturelle Gewicht von Ideen.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0F1C14">
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     :root { --ink:#0F1C14; --paper:#F7F3EB; --acid:#C8F04A; --teal:#1A3C34; --line:rgba(15,28,20,.12); --ease:cubic-bezier(.22,1,.36,1); }
@@ -51,6 +53,11 @@
     button span{color:var(--acid)}
     footer{padding:36px 4.5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--teal)}
     .admin-link{position:fixed;bottom:16px;left:16px;font-size:11px;opacity:.3;font-family:'DM Mono',monospace}
+    .nav{animation:nav-in .7s var(--ease) both}.hero > div{animation:hero-in .8s var(--ease) both}.hero-visual{animation-delay:.12s;position:relative;overflow:hidden}.hero-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 72% 30%,rgba(200,240,74,.55),transparent 33%);animation:glow-drift 8s ease-in-out infinite alternate;pointer-events:none}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}.reveal.is-visible{opacity:1;transform:none}.reveal:nth-child(2){transition-delay:.08s}.reveal:nth-child(3){transition-delay:.16s}.reveal:nth-child(4){transition-delay:.24s}
+    .nav-cta,button[type=submit]{transition:transform .25s var(--ease),background-color .25s var(--ease)}.nav-cta:hover,button[type=submit]:hover{transform:translateY(-2px)}
+    @keyframes nav-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}@keyframes hero-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes glow-drift{from{transform:translate3d(-6%,4%,0) scale(.95)}to{transform:translate3d(8%,-5%,0) scale(1.12)}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.nav,.hero > div{animation:none}.hero-visual::after{animation:none}.reveal{opacity:1;transform:none;transition:none}.direction-card,.nav-cta,button[type=submit]{transition:none}.direction-card:hover,.nav-cta:hover,button[type=submit]:hover{transform:none}}
     @media(max-width:900px){.hero,.position-grid,.directions-grid,.process-steps,.contact{grid-template-columns:1fr} nav{display:none}.hero-visual{order:-1}}
   </style>
 </head>
@@ -76,7 +83,7 @@
       <div class="hero-visual">Titelillustration (Kultur des Wachstums)</div>
     </section>
 
-    <section class="position" id="position">
+    <section class="position reveal" id="position">
       <p class="eyebrow">[ unsere Position ]</p>
       <h2 class="section-title">Nicht «Reichweite».<br>Sondern <em>unsere</em> Menschen.</h2>
       <div class="position-grid">
@@ -85,7 +92,7 @@
       </div>
     </section>
 
-    <section id="richtungen">
+    <section id="richtungen" class="reveal">
       <p class="eyebrow">[ Richtungen ]</p>
       <h2 class="section-title">Vom ersten Signal zur großen Bewegung.</h2>
       <div class="directions-grid">
@@ -96,12 +103,12 @@
       </div>
     </section>
 
-    <section class="quote">
+    <section class="quote reveal">
       <p class="eyebrow">[ brandcultura in zwei Worten ]</p>
       <blockquote>Neue Kultur braucht eine <em>laute</em> und ehrliche Stimme.</blockquote>
     </section>
 
-    <section id="prozess">
+    <section id="prozess" class="reveal">
       <p class="eyebrow">[ wie wir arbeiten ]</p>
       <h2 class="section-title">Strategie, die das Menschliche nicht verliert.</h2>
       <div class="process-steps">
@@ -111,7 +118,7 @@
       </div>
     </section>
 
-    <section class="contact" id="kontakt">
+    <section class="contact reveal" id="kontakt">
       <div>
         <p class="eyebrow">[ beginnen ]</p>
         <h2>Hast du der Welt etwas zu sagen?</h2>
@@ -133,6 +140,16 @@
   </footer>
   <a href="admin.html" class="admin-link">Verwaltung</a>
   <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element))
+
     document.getElementById('contact-form').addEventListener('submit', function(e){e.preventDefault();const b=this.querySelector('button');b.innerHTML='Gesendet ✓';setTimeout(()=>{b.innerHTML='Geschichte senden <span>↗</span>';this.reset()},2000)});
   </script>
 </body>
